@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MedReminder</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fira+Sans|Roboto:300,400|Questrial|Satisfy">
+    <link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  </head>
+  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" onload="myFunction()">
+  <div class="header">
+      <div class="bg-color">
+        <header id="main-header">
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#xMenu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">MedReminder</a>
+            </div>
+            <div class="collapse navbar-collapse" id="xMenu">
+              <ul class="nav navbar-nav navbar-right navbar-border">
+                <li class="active"><a href="#main-header">Home</a></li>
+                <li><a href="#about">Form</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        </header>
+        <div class="wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 wow fadeIn delay-05s">
+              <div class="banner-text">
+                <h2>Hi, we are the&nbsp;<span>  MedReminder  </span> Team</h2>
+                <p>and we can help you keep check on your medical tests. <br> Sign Up Today!</p>
+              </div>
+              <div class="overlay-detail text-center">
+                  <a href="#about"><i class="fa fa-angle-down"></i></a>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+      </div>
+  <section id="about" class="section-padding wow fadeIn delay-05s">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+            {% if flash %}
+            <div class="alert alert-{{ flashType }}">
+                {{ flash }}
+            </div>
+            {% endif %}
+          <h2 class="title-text">
+            MedReminder Health Form
+          </h2>
+          <br>
+         <form method="post">
+              <div class="form-group">
+                      <label for="name">Full Name<sup>*</sup></label>
+                      <input type="text" class="form-control" name="name" placeholder="Enter your full name">
+
+            </div>
+            <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" name="email" placeholder="Enter your email">
+
+          </div>
+          <div class="form-group">
+                  <label>Gender  : </label>
+                  <input type="radio" value="Male" name="gender"> Male
+                  <input type="radio" value="Female" name="gender"> Female
+        </div>
+        <div class="form-group">
+                <label for="age">Age<sup>*</sup></label>
+                <input type="text" class="form-control" placeholder="Enter your age" name="age">
+
+      </div>
+      <div class="form-group">
+              <label for="medicaltestdetail">Medical Test Reminder : Details<sup>*</sup></label>
+              <input type="text" class="form-control" name="detail" placeholder="Atleast 5 characters">
+
+    </div>
+    <div class="form-group">
+            <label for="email">Mobile Number (Supported Countries : India )<sup>*</sup></label>
+            <input type="text" class="form-control" placeholder="Enter 10 digit mobile number" name="number">
+
+  </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-success">
+          </div>
+        </form>
+
+        <div class="col-md-6 text-left">
+          <div class="about-text">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-2 text-center bg--white">
+    <div class="container">
+      <!--end row-->
+
+      <div class="row">
+          Made with ♥️ by MedReminder Team
+      </div>
+      <!--end row-->
+    </div>
+  </footer>
+
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/jquery.easing.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/jquery.bxslider.min.js"></script>
+    <script src="../static/js/wow.js"></script>
+    <script src="../static/js/custom.js"></script>
+  </body>
+</html>
