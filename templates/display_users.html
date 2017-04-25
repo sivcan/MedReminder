@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MedReminder</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fira+Sans|Roboto:300,400|Questrial|Satisfy">
+    <link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+
+    <script type="text/javascript" src="../static/bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="../static/bower_components/moment/min/moment.min.js"></script>
+  <script type="text/javascript" src="../static/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+  <link rel="stylesheet" href="../static/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
+  <!-- <script src="../static/js/jquery.min.js"></script> -->
+  <script src="../static/js/jquery.easing.min.js"></script>
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script src="../static/js/jquery.bxslider.min.js"></script>
+  <script src="../static/js/wow.js"></script>
+  <script src="../static/js/custom.js"></script>
+  </head>
+  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" onload="myFunction()">
+  <div class="header">
+      <div class="bg-color">
+        <header id="main-header">
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#xMenu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">MedReminder</a>
+            </div>
+            <div class="collapse navbar-collapse" id="xMenu">
+              <ul class="nav navbar-nav navbar-right navbar-border">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/">Form</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        </header>
+        <div class="wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 wow fadeIn delay-05s">
+              <div class="banner-text">
+                <h2>Hi, we are the&nbsp;<span>  MedReminder  </span> Team</h2>
+                <p>and we can help you keep check on your medical tests. <br> Sign Up Today!</p>
+              </div>
+              <div class="overlay-detail text-center">
+                  <a href="#about"><i class="fa fa-angle-down"></i></a>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+      </div>
+  <section id="about" class="section-padding wow fadeIn delay-05s">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+            {% if flash %}
+            <div class="alert alert-{{ flashType }}">
+                {{ flash }}
+            </div>
+            {% endif %}
+          <h2 class="title-text">
+            <u>MedReminder User Profiles</u>
+          </h2>
+          <br>
+    {% for user in users %}
+    <h3> {{ user.name }} </h3>
+    <h4> MedReminder Details : {{ user.detail }} </h4>
+    <h5> Email : {{ user.email }} </h5>
+    <h5> Contact Number : +{{ user.number }} </h5>
+    <hr>
+    {% endfor %}
+        <div class="col-md-6 text-left">
+          <div class="about-text">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-2 text-center bg--white">
+    <div class="container">
+      <div class="row">
+          Made with ♥️ by MedReminder Team
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript">
+         $(function () {
+             $('#datetimepicker5').datetimepicker({
+                 disabledDates: [
+                     moment("12/25/2013"),
+                     new Date(2017, 11 - 1, 21),
+                     "4/20/2017 00:53"
+                 ]
+             });
+         });
+     </script>
+
+     <script type="text/javascript">
+        var unixtime = Date.parse(document.getElementById('selectedDate').value).getTime()/1000;
+        console.log(unixtime);
+     </script>
+
+  </body>
+</html>
