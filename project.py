@@ -18,7 +18,7 @@ Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
-#Project apiKey textlocal : 35aa3f03dceda115c9557a7fbd60aa8c646cd044a06b9baf3d5423bb1ede72ec
+#Project apiKey textlocal : noPQi7NR1iM-nVwcv6gHFGzrTS40szTX3MpjZHDaEI
 @app.route('/', methods=['GET','POST'])
 def MedReminder():
     global request
@@ -29,7 +29,7 @@ def MedReminder():
         detail = request.form['detail']
         email = request.form['email']
         age = request.form['age']
-        sender = 'MedReminder Team'
+        sender = 'TXTLCL'
         time = request.form['schedule_time']
         message = 'Reminder : ' + detail + ' - The MedReminder Team.'
         timeX = datetime.datetime.strptime(time, "%m/%d/%Y %I:%M %p").timetuple()
@@ -38,15 +38,15 @@ def MedReminder():
             user = Users(name=name, email=email, age=age, detail=detail, number=number)
             session.add(user)
             session.commit()
-            # data =  urllib.parse.urlencode({'apiKey': 'ZywG5kFs3QA-LVrOpdG5pQCVC1qWQYPMEYnK0rk7Fs', 'numbers': number,
-            #     'message' : message, 'sender': sender, 'schedule_time' : unixtime})
-            # data = data.encode('utf-8')
-            # request = urllib.request.Request("http://api.textlocal.in/send/?")
-            # f = urllib.request.urlopen(request, data)
-            # fr = f.read()
-            # print('--- Debug Statement ---  \n')
-            # print (fr)
-            # print('--- EO Debug Statement --- \n')
+            data =  urllib.parse.urlencode({'apiKey': 'noPQi7NR1iM-nVwcv6gHFGzrTS40szTX3MpjZHDaEI', 'numbers': number,
+                'message' : message, 'sender': sender, 'schedule_time' : unixtime})
+            data = data.encode('utf-8')
+            request = urllib.request.Request("http://api.textlocal.in/send/?")
+            f = urllib.request.urlopen(request, data)
+            fr = f.read()
+            print('--- Debug Statement ---  \n')
+            print (fr)
+            print('--- EO Debug Statement --- \n')
             return render_template('index.html', flash = 'Successfully Registered!', flashType = 'success')
         else :
             return render_template('index.html', flash = 'Incorrect Details. Please retry.', flashType = 'danger')
